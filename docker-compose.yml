@@ -2,6 +2,7 @@ version: "3"
 
 services:
   server:
+    image: therav/workshop:compose
     build: 
       context: .
     ports: 
