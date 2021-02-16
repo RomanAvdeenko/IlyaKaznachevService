@@ -2,6 +2,7 @@ FROM golang:1.15-alpine
 
 ENV WorkDir=/opt/code
 WORKDIR ${WorkDir}
+EXPOSE 8080
 
 COPY ./ ${WorkDir}
 
