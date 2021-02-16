@@ -21,7 +21,12 @@ func main() {
 	r := chi.NewRouter()
 
 	r.Get("/hello", h.Hello)
-	err = http.ListenAndServe(cfg.Host+":"+cfg.Port, r)
+
+	path := cfg.Host + ":" + cfg.Port
+
+	log.Println("Starting server at ", path)
+
+	err = http.ListenAndServe(path, r)
 	if err != nil {
 		log.Fatalln("Can't start server")
 	}
