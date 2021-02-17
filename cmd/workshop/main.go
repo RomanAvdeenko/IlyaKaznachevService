@@ -28,7 +28,7 @@ func main() {
 
 	err = http.ListenAndServe(path, r)
 	if err != nil {
-		log.Fatalln("Can't start server")
+		log.Fatalln("Can't start server.", err)
 	}
 
 }
