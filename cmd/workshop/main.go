@@ -4,8 +4,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/RomanAvdeenko/IlyaKaznachevService/internal/config"
-	"github.com/RomanAvdeenko/IlyaKaznachevService/internal/handler"
+	"workshop/internal/config"
+	"workshop/internal/handler"
+
 	"github.com/go-chi/chi"
 	"github.com/ilyakaznacheev/cleanenv"
 )

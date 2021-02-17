@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"workshop/internal/api"
 )
 
 const getJokePath = "/api?format=json"
@@ -13,27 +15,23 @@ type JokeClient struct {
 	url string
 }
 
-func (jc *JokeClient) GetJoke() (string, error) {
+func (jc *JokeClient) GetJoke() (*api.JokeResponse, error) {
 	urlPath := jc.url + getJokePath
 	resp, err := http.Get(urlPath)
 	if err != nil {
-		return "", err
+		return nil, err
 	} else if resp.StatusCode != http.StatusOK {
-		return "", fmt.Errorf("API request error: %v", err)
+		return nil, fmt.Errorf("API request error: %v", err)
 	}
 
 	defer resp.Body.Close()
 
-	var data JokeResponse
+	var data api.JokeResponse
 
 	err = json.NewDecoder(resp.Body).Decode(&data)
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	return "", err
-}
-
-type JokeResponse struct {
-	Joke string `json:"joke"`
+	return &data, err
 }
