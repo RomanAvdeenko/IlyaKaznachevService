@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - lint
-      -test
+      - test
     steps:
       - uses: actions/checkout@v2
       - name: Ligin to Heroku Container Registry
