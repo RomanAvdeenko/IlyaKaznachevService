@@ -33,7 +33,7 @@ jobs:
         uses: codecov/codecov-action@v1.0.0
         with:
           file: ./coverage.txt
-          fail_ci_if_error: false
+          token:  ${{ secrets.CODECOV_TOKEN }}
 
   deploy:
     name: Deploy on HEROKU
