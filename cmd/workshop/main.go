@@ -26,11 +26,11 @@ func main() {
 
 	r.Get("/hello", h.Hello)
 
-	path := cfg.Host + ":" + cfg.Port
+	serverAddr := cfg.Host + ":" + cfg.Port
 
-	log.Println("Starting server at ", path)
+	log.Println("Starting server at ", serverAddr)
 
-	err = http.ListenAndServe(path, r)
+	err = http.ListenAndServe(serverAddr, r)
 	if err != nil {
 		log.Fatalln("Can't start server.", err)
 	}
